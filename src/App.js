@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Repositories from './components/Repositories';
 
 function App(props) {
   const [ user, setUser ] = useState("")
@@ -19,6 +20,7 @@ function App(props) {
      <button type="button" onClick={handleClick}>Pesquisar</button>
      <p>{data.id}</p>
      <img src={data.avatar_url} alt="" />
+     <Repositories />
     </>
   );
 }
