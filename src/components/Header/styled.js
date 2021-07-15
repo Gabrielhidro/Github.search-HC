@@ -4,13 +4,13 @@ export const Header = styled.header `
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: .7rem;
 `
 
 export const Img = styled.img `
-  max-width: 30px;
+  max-width: 27px;
 `
 
 export const TextLight = styled.span `
-  color: #a0a0a0;
+  color: var(--text-dark);
 `
