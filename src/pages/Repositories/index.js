@@ -1,4 +1,5 @@
 import React , { useEffect, useState } from 'react'
+import * as S from './styled'
 
 const Repositories = () => {
   const [ repositories, setRepositories ] = useState([])
@@ -20,17 +21,17 @@ const Repositories = () => {
   }, [])
  
   return (
-    <>
-      <img src={avatar} alt="" />
-      <p>{name}</p>
-      <ul>
+    <S.RepoContent>
+      <S.Avatar src={avatar} alt="" />
+      <S.Name>{name}</S.Name>
+      <S.Ul>
         { repositories.map(repository => {
           return (
-            <li>{ repository }</li>
+            <S.List key={ repository } >{ repository }</S.List>
           )
         }) }
-      </ul>
-    </>
+      </S.Ul>
+    </S.RepoContent>
   )
 }
 
