@@ -1,16 +1,19 @@
 import React , { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import * as S from './styled'
 
 const Repositories = () => {
   const [ repositories, setRepositories ] = useState([])
   const [ avatar, setAvatar ] = useState("")
   const [ name, setName ] = useState("")
+  const history = useHistory();
 
   useEffect(() => {
     let repositoriesName = localStorage.getItem('repositoriesName');
     let name = localStorage.getItem('name')
     let avatar = localStorage.getItem('avatar')
 
+    if( repositoriesName !== null){
     repositoriesName = JSON.parse(repositoriesName)
     name = JSON.parse(name)
     avatar = JSON.parse(avatar)
@@ -19,7 +22,11 @@ const Repositories = () => {
     setName(name)
     setAvatar(avatar)
 
-    // localStorage.clear()
+    localStorage.clear()
+    }
+    else {
+      history.push('/')
+    }
   }, [])
  
   return (
