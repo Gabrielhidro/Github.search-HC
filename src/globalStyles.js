@@ -4,9 +4,10 @@ export const GlobalStyle = createGlobalStyle`
  :root {
   --bg-light: #ededed;
   --bg-medium: #e1ded5;
-  --text-dark: #808080;
+  --bg-dark: #151515;
 
-  --dark: #151515
+  --text-medium: #808080;
+
  }
 
   body {
@@ -16,5 +17,6 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 1200px;
     font-family: 'PT Sans Caption', sans-serif;
     font-size: 0.7rem;
+    background: var(--bg-light);
   }
 `

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import * as S from './styled'
+import GithubImage from '../../assets/github.png'
 
 const Home = () => {
 
@@ -14,12 +16,15 @@ const Home = () => {
   }
 
   return (
-    <>
-     <input value={user} onChange={e => setUser(e.target.value)} type="text" />
-     <button type="button" onClick={handleClick}>Pesquisar</button>
-     <p>{data.id}</p>
-     <img src={data.avatar_url} alt="" />
-    </>
+    <S.Main>
+      <S.ImgContent>
+        <S.Img src={GithubImage} alt="" />
+      </S.ImgContent>
+      <S.InputContent>
+        <S.Input placeholder="Usuário" value={user} onChange={e => setUser(e.target.value)} type="text" />
+        <S.Button type="button" onClick={handleClick}>Pesquisar</S.Button>
+      </S.InputContent>
+    </S.Main>
   )
 }
 

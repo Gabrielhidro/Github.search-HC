@@ -5,6 +5,7 @@ export const Header = styled.header `
   justify-content: center;
   align-items: center;
   gap: .7rem;
+  background: var(--bg-medium);
 `
 
 export const Img = styled.img `
@@ -12,5 +13,5 @@ export const Img = styled.img `
 `
 
 export const TextLight = styled.span `
-  color: var(--text-dark);
+  color: var(--text-medium);
 `
