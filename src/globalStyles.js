@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
-    max-width: 1200px;
     font-family: 'PT Sans Caption', sans-serif;
     font-size: 0.7rem;
     background: var(--bg-light);

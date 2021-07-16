@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import * as S from './styled'
 import GithubImage from '../../assets/github.png'
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
-
-  const [ user, setUser ] = useState("")
-  const [ data, setData ] = useState("")
-  const [ repos, setRepos ] = useState([])
+  const history = useHistory();
+  const [ user, setUser ] = useState("");
 
   function handleClick(e){
     e.preventDefault();
@@ -15,9 +14,10 @@ const Home = () => {
     axios.get(`https://api.github.com/users/${user}`)
     .then(response => {
       const datasApi = response.data;
-  
+      
       localStorage.setItem('name', JSON.stringify(datasApi.name))
       localStorage.setItem('avatar', JSON.stringify(datasApi.avatar_url))
+      history.push('/repositories');
     })
 
     axios.get(`https://api.github.com/users/${user}/repos`)
@@ -28,6 +28,7 @@ const Home = () => {
         repositoresName.push(repository.name)
       })
       localStorage.setItem('repositoriesName', JSON.stringify(repositoresName))
+      history.push('/repositories');
     })
 
   }
