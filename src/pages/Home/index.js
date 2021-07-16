@@ -7,12 +7,29 @@ const Home = () => {
 
   const [ user, setUser ] = useState("")
   const [ data, setData ] = useState("")
+  const [ repos, setRepos ] = useState([])
 
-  async function handleClick(e){
+  function handleClick(e){
     e.preventDefault();
     
-   await axios.get(`https://api.github.com/users/${user}`)
-    .then(response => setData(response.data))
+    axios.get(`https://api.github.com/users/${user}`)
+    .then(response => {
+      const datasApi = response.data;
+  
+      localStorage.setItem('name', JSON.stringify(datasApi.name))
+      localStorage.setItem('avatar', JSON.stringify(datasApi.avatar_url))
+    })
+
+    axios.get(`https://api.github.com/users/${user}/repos`)
+    .then(response => {
+      const repositories = response.data;
+      const repositoresName = [];
+      repositories.map((repository) => {
+        repositoresName.push(repository.name)
+      })
+      localStorage.setItem('repositoriesName', JSON.stringify(repositoresName))
+    })
+
   }
 
   return (
