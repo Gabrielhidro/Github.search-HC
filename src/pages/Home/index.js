@@ -7,6 +7,8 @@ import { useHistory } from 'react-router-dom';
 const Home = () => {
   const history = useHistory();
   const [ user, setUser ] = useState("");
+  const [ erro, setErro ] = useState(false);
+
 
   function handleClick(e){
     e.preventDefault();
@@ -30,6 +32,9 @@ const Home = () => {
       localStorage.setItem('repositoriesName', JSON.stringify(repositoresName))
       history.push('/repositories');
     })
+    .catch(err => {
+      setErro(err)
+    })
 
   }
 
@@ -41,6 +46,7 @@ const Home = () => {
       <S.InputContent>
         <S.Input placeholder="Usuário" value={user} onChange={e => setUser(e.target.value)} type="text" />
         <S.Button type="button" onClick={handleClick}>Pesquisar</S.Button>
+      { erro ? <S.Erro>Digite um nome de usuário existente!</S.Erro> : '' }
       </S.InputContent>
     </S.Main>
   )

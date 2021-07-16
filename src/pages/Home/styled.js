@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+export const Erro = styled.h3 `
+  color: red;
+  text-align: center;
+  margin-top: 2rem;
+`
+
 export const Main = styled.main `
   height: calc(100vh - 59px);
   display: flex;

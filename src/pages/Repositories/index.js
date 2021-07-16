@@ -6,6 +6,7 @@ const Repositories = () => {
   const [ repositories, setRepositories ] = useState([])
   const [ avatar, setAvatar ] = useState("")
   const [ name, setName ] = useState("")
+
   const history = useHistory();
 
   useEffect(() => {
