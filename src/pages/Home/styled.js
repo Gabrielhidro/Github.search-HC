@@ -26,9 +26,12 @@ export const Input = styled.input `
   padding: .5rem;
   width: 300px;
   outline: none;
+  letter-spacing: .2rem;
+
 `
 
 export const Button = styled.button `
+  letter-spacing: .2rem;
   border: none;
   padding: .5rem 2rem;
   cursor: pointer;

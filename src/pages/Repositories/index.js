@@ -18,6 +18,8 @@ const Repositories = () => {
     setRepositories(repositoriesName)
     setName(name)
     setAvatar(avatar)
+
+    // localStorage.clear()
   }, [])
  
   return (
@@ -31,6 +33,7 @@ const Repositories = () => {
           )
         }) }
       </S.Ul>
+      <S.LinkHome to="/">Voltar</S.LinkHome>
     </S.RepoContent>
   )
 }

@@ -20,7 +20,7 @@ const Home = () => {
       history.push('/repositories');
     })
 
-    axios.get(`https://api.github.com/users/${user}/repos`)
+    axios.get(`https://api.github.com/users/${user}/repos?per_page=10`)
     .then(response => {
       const repositories = response.data;
       const repositoresName = [];
