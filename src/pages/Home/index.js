@@ -19,10 +19,10 @@ const Home = () => {
       
       localStorage.setItem('name', JSON.stringify(datasApi.name))
       localStorage.setItem('avatar', JSON.stringify(datasApi.avatar_url))
-      history.push('/repositories');
+      localStorage.setItem('profile', JSON.stringify(datasApi.html_url))
     })
 
-    axios.get(`https://api.github.com/users/${user}/repos?per_page=10`)
+    axios.get(`https://api.github.com/users/${user}/repos`)
     .then(response => {
       const repositories = response.data;
       const repositoresName = [];
